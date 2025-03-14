@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="RabbIT.MarketGrid.UI.Pages.StockPriceViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:RabbIT.MarketGrid.UI.Pages"
+    xmlns:control="clr-namespace:RabbIT.MarketGrid.UI.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="Stock Price View Page"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    mc:Ignorable="d"
+    Margin="20 0 20 0">
+
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/StockCodeList.xaml"></ResourceDictionary>
+                <ResourceDictionary>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ui:InfoBar Title="Status" Message="{Binding ConnectionStatus}" Grid.Row="0" IsOpen="True" IsClosable="False"
+                   Severity="Informational"   />
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <ui:Button Content="Start" Icon="{ui:SymbolIcon Play16}" Width="100" Margin="0,10" Command="{Binding StartCommand}" Height="38"/>
+            <ui:Button Content="Stop" Icon="{ui:SymbolIcon Stop16}" Width="100" Margin="10" Command="{Binding StopCommand}"  Height="38"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="2"  >
+            
+            <Label Content="Select a Stock to Watch and Send" />
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>                  
+                    <ComboBox 
+                        ItemsSource="{StaticResource StockList}" 
+                        SelectedValue="{Binding Code, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Grid.Column="0" 
+                        Grid.Row="0" 
+                        Width="Auto"
+                        Margin="0 0 20 0"
+                         />
+
+                    <ui:Button 
+                        Content="Add" 
+                        Icon="{ui:SymbolIcon Add16}" 
+                        Command="{Binding SendCommand}" 
+                        IsEnabled="{Binding CanSendCommand}"  
+                        Height="38"
+                        Grid.Column="1"
+                        Grid.Row="0"/>
+                </Grid>
+            </StackPanel>
+            <ui:DataGrid ItemsSource="{Binding Stocks}" AutoGenerateColumns="False" Margin="0,20" >
+                <ui:DataGrid.Columns>
+                    <DataGridTextColumn Header="Code" Binding="{Binding Code}" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                </ui:DataGrid.Columns>
+                <ui:DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="{Binding Indicator}"></Setter>
+                    </Style>
+                </ui:DataGrid.RowStyle>
+            </ui:DataGrid>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbIT.MarketGrid.UI", "RabbIT.MarketGrid.UI\RabbIT.MarketGrid.UI.csproj", "{1910036F-C932-4809-9188-370AC9A23650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbIT.MarketGrid.Core", "RabbIT.MarketGrid.Core\RabbIT.MarketGrid.Core.csproj", "{2A9FCF5B-64C1-4C9B-9993-7229188C5D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbIT.MarketGrid.WebSocketServer", "RabbIT.MarketGrid.WebSocketServer\RabbIT.MarketGrid.WebSocketServer.csproj", "{395BE16B-D5D0-459F-84D4-64F29D27843D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{380A7511-A354-6D7A-0CC0-8FA1F1BA7B6C}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		wpf-client.png = wpf-client.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1910036F-C932-4809-9188-370AC9A23650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1910036F-C932-4809-9188-370AC9A23650}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1910036F-C932-4809-9188-370AC9A23650}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1910036F-C932-4809-9188-370AC9A23650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9FCF5B-64C1-4C9B-9993-7229188C5D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9FCF5B-64C1-4C9B-9993-7229188C5D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9FCF5B-64C1-4C9B-9993-7229188C5D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9FCF5B-64C1-4C9B-9993-7229188C5D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395BE16B-D5D0-459F-84D4-64F29D27843D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395BE16B-D5D0-459F-84D4-64F29D27843D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395BE16B-D5D0-459F-84D4-64F29D27843D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395BE16B-D5D0-459F-84D4-64F29D27843D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E18D785C-6B35-47FB-B97D-A82177501428}
+	EndGlobalSection
+EndGlobal
