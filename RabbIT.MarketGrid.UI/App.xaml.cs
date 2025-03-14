@@ -42,12 +42,6 @@ public partial class App
 
         services.AddSingleton<AboutPage>();
     }
-
-    public static T GetRequiredService<T>()
-        where T : class
-    {
-        return _host.Services.GetRequiredService<T>();
-    }
  
     private void OnStartup(object sender, StartupEventArgs e)
     {

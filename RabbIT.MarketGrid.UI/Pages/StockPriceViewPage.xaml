@@ -45,7 +45,7 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="2"  >
             
-            <Label Content="Select a Stock to Watch and Send" />
+            <Label Content="Select a stock:" />
 
             <StackPanel HorizontalAlignment="Stretch">
                 <Grid>
@@ -74,8 +74,8 @@
             </StackPanel>
             <ui:DataGrid ItemsSource="{Binding Stocks}" AutoGenerateColumns="False" Margin="0,20" >
                 <ui:DataGrid.Columns>
-                    <DataGridTextColumn Header="Code" Binding="{Binding Code}" />
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                    <DataGridTextColumn Header="Code" Binding="{Binding Code}" CanUserSort="False" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" CanUserSort="False" />               
                 </ui:DataGrid.Columns>
                 <ui:DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">

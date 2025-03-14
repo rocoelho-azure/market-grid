@@ -8,7 +8,7 @@ namespace RabbIT.MarketGrid.Core.Services
     {
         private readonly List<Stock> _stockPrices = new();
         private readonly ConcurrentDictionary<Guid, List<string>> _clientStocks = new();
-        private readonly Random _random = new();
+        private readonly Random _random = new(1);
 
         public StockPriceService()
         {
