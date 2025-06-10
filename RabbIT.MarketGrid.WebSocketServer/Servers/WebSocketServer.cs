@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace RabbIT.MarketGrid.WebSocketServer.Servers
 {
-    public abstract class GenericWebSocketServer
+    public abstract class WebSocketServer
     {
         private readonly ConcurrentDictionary<Guid, WebSocket> _clients = new();
         private readonly object _lock = new();
