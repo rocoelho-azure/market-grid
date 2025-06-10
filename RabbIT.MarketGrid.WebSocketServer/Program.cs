@@ -21,7 +21,7 @@ namespace RabbIT.MarketGrid.WebSocketServer
             builder.WebHost.UseUrls(url);
 
 
-            builder.Services.AddSingleton<GenericWebSocketServer, StockPriceWebSocketServer>();
+            builder.Services.AddSingleton<Servers.WebSocketServer, StockPriceWebSocketServer>();
             builder.Services.AddSingleton<IStockPriceService, StockPriceService>();
             builder.Services.AddHostedService<StockPriceUpdateWorker>();
             builder.Services.AddHostedService<BroadcastMessageWorker>();
@@ -35,7 +35,7 @@ namespace RabbIT.MarketGrid.WebSocketServer
                 if (context.WebSockets.IsWebSocketRequest)
                 {
                     var webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                    var webSocketServer = context.RequestServices.GetRequiredService<GenericWebSocketServer>();
+                    var webSocketServer = context.RequestServices.GetRequiredService<Servers.WebSocketServer>();
                     await webSocketServer.HandleClient(context, webSocket);
                 }
                 else
