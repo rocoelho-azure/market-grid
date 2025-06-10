@@ -1,51 +1,46 @@
-# Projeto de VisualizaÁ„o de PreÁos de AÁıes em Tempo Real
+# Projeto de Visualiza√ß√£o de Pre√ßos de A√ß√µes em Tempo Real
 
-Este repositÛrio contÈm um projeto desenvolvido em .NET 8 dividido em dois mÛdulos principais:
-1. **WebSocket Server**: Respons·vel por simular e emitir alteraÁıes nos preÁos das aÁıes do mercado em tempo real.
-2. **WPF Client**: Aplicativo de interface gr·fica desenvolvido em WPF para visualizar em tempo real as alteraÁıes dos preÁos das aÁıes.
+Este reposit√≥rio cont√©m um projeto desenvolvido em .NET 8 dividido em dois m√≥dulos principais:
+1. **App Host**: Aplicativo respons√°vel por gerenciar e monitorar os servi√ßos da solu√ß√£o
+2. **WebSocket Server**: Respons√°vel por simular e emitir altera√ß√µes nos pre√ßos das a√ß√µes do mercado em tempo real.
+3. **WPF Client**: Aplicativo de interface gr√°fica desenvolvido em WPF para visualizar em tempo real as altera√ß√µes dos pre√ßos das a√ß√µes.
 
 ## Tecnologias e Bibliotecas Utilizadas
 - **.NET 8** - Framework principal do projeto
-- **WPF.UI** - Biblioteca para estilizaÁ„o e componentes visuais no WPF
-- **CommunityToolkit.Mvvm** - ImplementaÁ„o do padr„o MVVM para o WPF
-- **Rx.NET** - Biblioteca para manipulaÁ„o reativa de eventos
+- **WPF.UI** - Biblioteca para estiliza√ß√£o e componentes visuais no WPF
+- **CommunityToolkit.Mvvm** - Implementa√ß√£o do padr√£o MVVM para o WPF
+- **Rx.NET** - Biblioteca para manipula√ß√£o reativa de eventos
+- **.net Aspire** - Ferramenta da Microsoft para orquestrar servi√ßos e suas dependencias
 
 ## Estrutura do Projeto
 ```
 /RabbIT.MarketGrid
-  /RabbIT.MarketGrid.UI						# Aplicativo WPF para visualizaÁ„o dos preÁos
-  /RabbIT.MarketGrid.WebSocketServer		# Servidor WebSocket para emiss„o de preÁos
-  /RabbIT.MarketGrid.Core					# Biblioteca de classes compartilhadas
+  /RabbIT.MarketGrid.AppHost
+    /RabbIT.MarketGrid.AppHost                  # Aplicativo que gerencia os demais aplicativos
+    /RabbIT.MarketGrid.AppHost.ServiceDefaults  # Projeto que inicializa configura√ß√µes padr√µes nos aplicativos e.g Monitoramento
+  /RabbIT.MarketGrid.UI                         # Aplicativo WPF para visualiza√ß√£o dos pre√ßos
+  /RabbIT.MarketGrid.WebSocketServer            # Servidor WebSocket para emiss√£o de pre√ßos
+  /RabbIT.MarketGrid.Core                       # Biblioteca de classes compartilhadas
 ```
 
 ## Como Executar
 ### Passos para Rodar o WebSocket Server
-ApÛs clonar o reposirÛrio, siga os passos abaixo para executar o projeto:
+Ap√≥s clonar o reposit√≥rio, siga os passos abaixo para executar o projeto:
 
-1. Navegue atÈ a pasta `WebSocketServer`.
+1. Navegue at√© a pasta `RabbIT.MarketGrid.AppHost`.
    ```cmd
-   cd /RabbIT.MarketGrid/RabbIT.MarketGrid.WebSocketServer   
+   cd /RabbIT.MarketGrid/RabbIT.MarketGrid.AppHost/RabbIT.MarketGrid.AppHost   
    ```
-1. Execute o comando:
+2. Execute o comando:
    ```cmd   
    dotnet run
    ```
-3. O servidor iniciar· e ficar· pronto para emitir eventos de preÁo.
-
-### Passos para Rodar o WPF Client
-1. Navegue atÈ a pasta `RabbIT.MarketGrid.UI`.
-   ```cmd
-   cd /RabbIT.MarketGrid/RabbIT.MarketGrid.UI
-   ```
-2. Execute o comando:
-   ```cmd
-   dotnet run
-   ```
-3. O aplicativo WPF iniciar· para exibir os preÁos das aÁıes em tempo real.
-4. Navegue atÈ Stock Prices
-5. Para visualizar as alteraÁıes de preÁo, clique no bot„o "Start" no canto superior esquerdo.
-6. Selecione uma aÁ„o na lista de aÁıes disponÌveis e clique em adicionar.
-7. A aÁ„o ser· adicionada ao grid de preÁos e as alteraÁıes de preÁo ser„o exibidas em tempo real.
+3. O .net Aspire ir√° inicializar os servi√ßos e disponibilizar√° o dashboard em https://localhost:17296/
+4. O aplicativo WPF iniciar√° para exibir os pre√ßos das a√ß√µes em tempo real.
+5. Navegue at√© Stock Prices.
+6. Para visualizar as altera√ß√µes de pre√ßo, clique no bot√£o "Start" no canto superior esquerdo.
+7. Selecione uma a√ß√£o na lista de a√ß√µes dispon√≠veis e clique em adicionar.
+8. A a√ß√£o ser√° adicionada ao grid de pre√ßos e as altera√ß√µes de pre√ßo ser√£o exibidas em tempo real.
 
 
 

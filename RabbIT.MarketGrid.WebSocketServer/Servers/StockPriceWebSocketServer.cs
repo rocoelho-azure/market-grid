@@ -2,7 +2,7 @@
 
 namespace RabbIT.MarketGrid.WebSocketServer.Servers
 {
-    public class StockPriceWebSocketServer : GenericWebSocketServer
+    public class StockPriceWebSocketServer : WebSocketServer
     {
         private readonly IStockPriceService _stockPriceService;
         public StockPriceWebSocketServer(IStockPriceService stockPriceService)

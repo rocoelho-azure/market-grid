@@ -5,10 +5,10 @@ namespace RabbIT.MarketGrid.WebSocketServer.Workers
     public class BroadcastMessageWorker : BackgroundService
     {
         
-        private readonly GenericWebSocketServer _webSocketServer;
+        private readonly Servers.WebSocketServer _webSocketServer;
         private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
 
-        public BroadcastMessageWorker(GenericWebSocketServer webSocketServer)
+        public BroadcastMessageWorker(Servers.WebSocketServer webSocketServer)
         {            
             _webSocketServer = webSocketServer;
         }
